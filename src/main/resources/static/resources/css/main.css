@@ -1,0 +1,219 @@
+@font-face {
+    font-family: GilroyBold;
+    src: url('../fonts/Gilroy-Bold.ttf');
+}
+
+@font-face {
+    font-family: GilroySemiBoldItalic;
+    src: url('../fonts/Gilroy-SemiBoldItalic.ttf');
+}
+
+@font-face {
+    font-family: GilroyRegular;
+    src: url('../fonts/Gilroy-Regular.ttf');
+}
+
+@font-face {
+    font-family: GilroyRegularItalic;
+    src: url('../fonts/Gilroy-RegularItalic.ttf');
+}
+
+@font-face {
+    font-family: GilroyMedium;
+    src: url('../fonts/Gilroy-Medium.ttf');
+}
+
+@font-face {
+    font-family: GilroyLight;
+    src: url('../fonts/Gilroy-Light.ttf');
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    width: 100%;
+    background: url("../img/dd.jpg") no-repeat;
+    background-size: cover;
+    color: rgba(255, 255, 255, 0.94);
+    font-family: GilroyBold, sans-serif;
+    filter: hue-rotate(25deg);
+
+}
+
+button {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+    border: none !important;
+    text-transform: uppercase;
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    transition: all 0.25s ease;
+}
+
+small {
+    font-size: 85%;
+    font-family: GilroyMedium;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.fas {
+    color: #00f8d2;
+}
+
+.visca-buttons {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    height: 250px;
+}
+
+.visca-position-up-left {
+    position: absolute;
+    top: 0;
+    left: 55px;
+}
+
+.visca-position-up-left span.fas {
+    transform: rotate(-45deg);
+}
+
+.visca-position-up {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 35px);
+}
+
+.visca-position-up-right {
+    position: absolute;
+    top: 0;
+    right: 50px;
+}
+
+.visca-position-up-right span.fas {
+    transform: rotate(45deg);
+}
+
+.visca-position-left {
+    position: absolute;
+    left: 55px;
+    top: 85px;
+}
+
+.visca-position-right {
+    position: absolute;
+    top: 85px;
+    right: 50px;
+}
+
+.visca-position-down-left {
+    position: absolute;
+    top: 170px;
+    left: 55px;
+}
+
+.visca-position-down-left span.fas {
+    transform: rotate(45deg);
+}
+
+.visca-position-down {
+    position: absolute;
+    top: 170px;
+    left: calc(50% - 35px);
+}
+
+.visca-position-down-right {
+    position: absolute;
+    top: 170px;
+    right: 50px;
+}
+
+.visca-position-down-right span.fas {
+    transform: rotate(-45deg);
+}
+
+button.btn-circle .fas {
+    color: #176d5f;
+    font-size: 40px;
+    position: absolute;
+    left: 20px;
+    top: 18px;
+}
+
+button.btn-circle:hover .fas {
+    color: #00f8d2;
+}
+
+button.btn-circle:active .fas {
+    color: #00f8d2;
+}
+
+.container {
+    background-image: linear-gradient(135deg, rgba(37, 142, 128, 0.82) 10%, rgba(0, 38, 97, 0.95) 100%);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.33), 0 5px 10px rgba(0, 0, 0, 0.25) !important;
+    border-top: solid 5px #19e8ff;
+}
+
+.section h5 {
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.btn-circle {
+    position: absolute;
+    background: aliceblue;
+    color: #1b1e21;
+    height: 75px !important;
+    width: 75px !important;
+    border-radius: 9999px;
+    padding: 15px !important;
+}
+
+.btn-circle:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08), 0 5px 10px rgba(0, 0, 0, 0.125) !important;
+    color: white;
+    background: #23a595;
+}
+
+.btn-circle:active {
+    transition: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+    color: white;
+    background: #007f86 !important;
+}
+
+.btn-circle-small {
+    background: #313131;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+#response.response {
+    background: rgba(0, 0, 0, 0.8);
+    color: #00a09b;
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.btn-normal {
+    background: #00f8d2;
+    color: #222;
+}
+
+.btn-normal:hover {
+    background: #00e4bf;
+}
+
+.btn-normal:active {
+    transition: none;
+    background: #00d7b5 !important;
+}
+
+.btn-home span.fas {
+    color: #002333;
+}

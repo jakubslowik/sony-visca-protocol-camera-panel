@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <title>VISCA Web Application</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" th:href="@{/resources/vendor/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/resources/vendor/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/resources/css/main.css}">
+    <script th:src="@{/resources/vendor/jquery-3-1-1.min.js}"></script>
+    <script th:src="@{/resources/vendor/bootstrap.min.js}"></script>
+    <script th:src="@{/resources/js/mainPage.js}"></script>
+</head>
+<body style="padding-top: 45px;">
+
+<div class="container">
+    <div style="padding-top: 30px; padding-bottom: 15px;" class="row">
+        <div class="col-lg-9">
+            <h4 style="letter-spacing: 2px;">VISCA™/RS-232C protocol camera management panel</h4>
+            <h6 style="color: #00f8d2;  letter-spacing: 2px;">SONY EVI-D30/D31</h6>
+            <h6 style="letter-spacing: 1px;">
+                <small>Jakub Słowik</small>
+            </h6>
+        </div>
+        <div class="col-lg-3 text-right">
+            <form>
+                <div class="form-group">
+                    <label style="width: 200px;" for="destinationAddress">
+                        <span class="fas fa-location-arrow"></span> Destination address
+                        <br>
+                        <small>(values: 1 - <span th:text="${maxDestinationAddress}"></span>)</small>
+                    </label>
+                    <input style="width:100px; float:right;" id="destinationAddress" class="form-control" type="number"
+                           th:max="${maxDestinationAddress}" min="1"
+                           value="1">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="margin-top: 30px; height: 350px;" class="row">
+        <section class="section col-lg-4">
+            <h5 style="border-bottom: 1px solid rgba(0,248,210,0.51);"><span class="fas fa-fast-forward"></span>
+                Camera speed</h5>
+            <div class="row">
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group">
+                            <label style="width: 200px;" for="panSpeed">
+                                <span class="fas fa-arrows-alt-h"></span> Pan speed
+                                <br>
+                                <small>(values: 1 - <span th:text="${maxPanSpeed}"></span>)</small>
+                            </label>
+                            <input id="panSpeed" class="form-control" type="number" th:max="${maxPanSpeed}" min="1"
+                                   value="8">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-4">
+                    <form>
+                        <div class="form-group">
+                            <label style="width: 200px;" for="tiltSpeed">
+                                <span class="fas fa-arrows-alt-v"></span> Tilt speed
+                                <br>
+                                <small>(values: 1 - <span th:text="${maxTiltSpeed}"></span>)</small>
+                            </label>
+                            <input id="tiltSpeed" class="form-control" type="number" th:max="${maxTiltSpeed}" min="1"
+                                   value="8">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="section col-lg-4 text-center position-controller">
+            <h5 style="border-bottom: 1px solid rgba(0,248,210,0.51); "><span class="fas fa-arrows-alt"></span> Camera
+                position</h5>
+            <div class="visca-buttons">
+                <button id="viscaPositionUpLeft" class="btn btn-circle btn-circle-small visca-position-up-left">
+                    <span class="fas fa-arrow-up"></span>
+                </button>
+                <button id="viscaPositionUp" class="btn btn-circle visca-position-up">
+                    <span class="fas fa-arrow-up"></span>
+                </button>
+                <button id="viscaPositionUpRight" class="btn btn-circle btn-circle-small visca-position-up-right">
+                    <span class="fas fa-arrow-up"></span>
+                </button>
+                <button id="viscaPositionLeft" class="btn btn-circle visca-position-left">
+                    <span class="fas fa-arrow-left"></span>
+                </button>
+                <button id="viscaPositionRight" class="btn btn-circle visca-position-right">
+                    <span class="fas fa-arrow-right"></span>
+                </button>
+                <button id="viscaPositionDownLeft" class="btn btn-circle btn-circle-small visca-position-down-left">
+                    <span class="fas fa-arrow-down"></span>
+                </button>
+                <button id="viscaPositionDown" class="btn btn-circle visca-position-down">
+                    <span class="fas fa-arrow-down"></span>
+                </button>
+                <button id="viscaPositionDownRight" class="btn btn-circle btn-circle-small visca-position-down-right">
+                    <span class="fas fa-arrow-down"></span>
+                </button>
+            </div>
+            <button id="viscaHome" class="btn btn-lg btn-success btn-normal btn-home">
+                <span class="fas fa-home"></span> HOME
+            </button>
+            <button id="viscaPositionStop" class="btn btn-lg btn-danger btn-normal btn-home">
+                <span class="fas fa-stop"></span> STOP
+            </button>
+            <div style="margin-top:5px;" class="row">
+                <div class="col-lg-12">
+                    <button id="viscaPositionPos" class="btn btn-lg btn-success visca-zoom-wide btn-normal btn-home">
+                        GET PAN/TILT POSITION
+                    </button>
+                </div>
+            </div>
+            <div hidden style="margin-top:5px;" class="row">
+                <div class="col-lg-12">
+                    <button id="viscaPositionAbsolute" class="btn btn-lg btn-success visca-zoom-wide btn-normal btn-home">
+                        ABSOLUTE POSITION DRIVE
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="section col-lg-4 text-right">
+            <h5 style="border-bottom: 1px solid rgba(0,248,210,0.52);"><span class="fas fa-search"></span> Camera
+                zoom</h5>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="viscaZoomTele" class="btn btn-lg btn-success visca-zoom-tele btn-normal">TELE</button>
+                    <button id="viscaZoomWide" class="btn btn-lg btn-success visca-zoom-wide btn-normal">WIDE</button>
+                    <button id="viscaZoomStop" class="btn btn-lg btn-success visca-zoom-wide btn-normal btn-home"><span
+                            class="fas fa-stop"></span> STOP
+                    </button>
+                </div>
+            </div>
+            <div style="margin-top:5px;" class="row">
+                <div class="col-lg-12">
+                    <button id="viscaZoomPos" class="btn btn-lg btn-success visca-zoom-wide btn-normal btn-home">
+                        GET ZOOM POSITION
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <h5 hidden style="margin-top: 40px;"><span class="fas fa-list-ol"></span> Macro</h5>
+    <h5 style="margin-top: 55px;"></h5>
+    <div hidden class="row">
+        <div class="col-lg-9">
+            <div class="form-group">
+                <textarea id="viscaMacro" class="form-control" type="text" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <button id="viscaSendMacro" style="height: 60px;"
+                    class="btn-block btn btn-lg btn-success btn-normal"></span> SEND MACRO
+            </button>
+        </div>
+    </div>
+    <h5><span class="fas fa-align-left"></span> Response</h5>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <textarea id="response" readonly class="response form-control" rows="5"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
